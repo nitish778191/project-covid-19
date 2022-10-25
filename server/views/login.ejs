@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+   <!--Made with love by Mutiullah Samim -->
+   <link rel="icon" type="image/x-icon" href="fav.png">
+	<!--Bootsrap 4 CDN-->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--Fontawesome CDN-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+	<!--Custom styles-->
+	<link rel="stylesheet" type="text/css" href="login.css">
+
+
+</head>
+<body>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3>ADMIN LOGIN</h3>
+
+			<div class="card-body">
+				<form>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="username" id="text1">
+
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="password" id="text2">
+					</div>
+
+					<div class="form-group">
+						<input type="button" value="Login" class="btn float-right login_btn" onclick="javascript:validate()">
+					</div>
+
+
+  <script type="text/javascript">
+                function validate()
+                {
+                    if(   document.getElementById("text1").value == "admin"
+                       && document.getElementById("text2").value == "Test@123" )
+                    {
+                        alert( "validation succeeded" );
+                        window.location.href = "dashboard.html";
+
+                    }
+                    else
+                    {
+                        alert( "validation failed" );
+                        
+                    }
+                }
+  </script>
+				</form>
+			</div>
+			<div class="card-footer">
+				<a class="small" href="index.html" style="font-weight:bold;"><i class="fa fa-home" aria-hidden="true"></i> Home Page</a>
+				<div class="d-flex justify-content-center">
+					<a href="#">Forgot your password?</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

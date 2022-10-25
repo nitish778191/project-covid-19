@@ -1,0 +1,63 @@
+
+class TrieNode:
+    def __init__(self):
+        self.child = [None] * 11
+        self.ip = None
+        self.is_end = False
+ 
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+     
+    def getIndex(self, c):
+        # For the . (dot) in IP address, we'll use the 10th index in child list
+        return 26 if c == '.' else (c-'a')
+     
+    def insert(self, ip, domain):
+        cur = self.root
+        n = len(domain)
+         
+        for level in range(n):
+            # We'll use the digits of IP address to form the trie structure
+            idx = self.getIndex(domain[level])
+             
+            if cur.child[idx] is None:
+                # Create a new trie node if not available for a particular digit
+                # and assign to the respective index
+                cur.child[idx] = TrieNode()
+                 
+            cur = cur.child[idx]
+         
+        # At the end, we'll map the domain name and mark the end node
+        cur.ip = ip
+        cur.is_end = True
+     
+    def search_domain(self, domain):
+        cur = self.root
+        n = len(domain)
+         
+        # Traverse through the trie structure with all digits in ip address
+        for level in range(n):
+            idx = self.getIndex(ip[level])
+            if cur.child[idx] is None:
+                return "Domain name not found"
+             
+            cur = cur.child[idx]
+         
+        # Returns the url when all the digits in ip found
+        if cur and cur.url:
+            return cur.url
+         
+        return "Domain name not found"
+ 
+# Driver Code
+ip = ["107.108.11.123", "107.109.123.255", "74.125.200.106"]
+domain = ["www.samsung.com", "www.samsung.net", "www.google.co.in"]
+ 
+trie = Trie()
+for idx in range(len(ip)):
+    trie.insert(ip[idx], domain[idx])
+ 
+print(trie.search_domain("107.109.123.255"))
+print(trie.search_domain("107.109.123.245"))
+ 
